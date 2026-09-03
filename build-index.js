@@ -1,13 +1,21 @@
-// Index-Builder fuer den Vitrine-Katalog (M4/K1).
+// Index-Builder fuer den Vitrine-Katalog (M4/K1, Pfad versioniert seit K6).
 //
 // Liest alle 'packages/<id>.json'-Dateien (Format:
-// registry/schema/registry-package.schema.json) und erzeugt daraus:
-//   <out>/index/index.json, <out>/index/index-2.json, ...  (paginiert,
+// registry/schema/registry-package.schema.json) und erzeugt daraus, alle
+// unter dem festen, versionierten Pfad 'index/v1/' (ROADMAP, Technische
+// Festlegungen: "Fester Katalog-Pfad im Jar... .../index/v1/index.json"):
+//   <out>/index/v1/index.json, <out>/index/v1/index-2.json, ...  (paginiert,
 //     Format: registry/schema/registry-index-page.schema.json)
-//   <out>/search.json                                      (Format:
+//   <out>/index/v1/search.json                                   (Format:
 //     registry/schema/registry-search.schema.json)
-//   <out>/featured.json                                    (Format:
+//   <out>/index/v1/featured.json                                 (Format:
 //     registry/schema/registry-featured.schema.json)
+//
+// 'v1' ist der API-Pfad des Katalogformats (CATALOG_VERSION unten), nicht
+// identisch mit 'schemaVersion' in den einzelnen Dateien, faellt aktuell aber
+// zusammen. Eine spaetere, nicht abwaertskompatible Formataenderung bekommt
+// 'index/v2/' als neuen, zusaetzlichen Pfad -- 'index/v1/' bleibt fuer alte
+// Clients bestehen.
 //
 // Charter-Regel 8 ("ein Schema, zwei Seiten"): dieser Builder ist die
 // Referenzimplementierung fuer das Format, das der Katalog-Client im Mod
@@ -39,6 +47,9 @@ function loadSchema(name) {
 
 const packageSchema = loadSchema("registry-package.schema.json");
 const packageValidator = new Validator(packageSchema, "2020-12");
+
+// Fester, versionierter Katalog-Pfad -- siehe Kommentar am Dateianfang.
+export const CATALOG_VERSION = "v1";
 
 const SEMVER_RE =
 	/^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/;
@@ -251,11 +262,12 @@ export function buildIndex({ packagesDir, outDir, pageSize = 24, now = new Date(
 	const search = buildSearch(packages, { now });
 	const featured = buildFeatured(packages, { now });
 
+	const versionDir = path.join(outDir, "index", CATALOG_VERSION);
 	for (const page of pages) {
-		writeJson(path.join(outDir, "index", page.fileName), page.content);
+		writeJson(path.join(versionDir, page.fileName), page.content);
 	}
-	writeJson(path.join(outDir, "search.json"), search);
-	writeJson(path.join(outDir, "featured.json"), featured);
+	writeJson(path.join(versionDir, "search.json"), search);
+	writeJson(path.join(versionDir, "featured.json"), featured);
 
 	return { packages, pages, search, featured };
 }

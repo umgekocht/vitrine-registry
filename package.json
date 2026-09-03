@@ -7,7 +7,9 @@
   "scripts": {
     "validate-examples": "node schema/validate-examples.mjs",
     "build-index": "node build-index.js",
-    "test": "node --test test/*.test.mjs"
+    "test": "node --test test/*.test.mjs",
+    "validate-changed-packages": "node scripts/validate-changed-packages.mjs",
+    "dry-run": "node scripts/dry-run.mjs"
   },
   "devDependencies": {
     "@cfworker/json-schema": "4.1.1"

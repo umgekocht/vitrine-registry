@@ -3,7 +3,7 @@
 // Laesst den Builder gegen die drei Beispielpakete unter registry/packages/
 // laufen (Textur, Theme, HUD -- Klasse-A-Inhalte) und prueft jede erzeugte
 // Datei gegen ihr Schema unter registry/schema/. Schreibt in ein temporaeres
-// Verzeichnis, nicht nach registry/index/ -- der Builder-Output ist kein
+// Verzeichnis, nicht nach registry/index/v1/ -- der Builder-Output ist kein
 // eingecheckter Zustand dieses Repos (das Katalog-Repo 'vitrine-registry'
 // entsteht erst in K7).
 //
@@ -63,7 +63,7 @@ test("Builder erzeugt aus den 3 Beispielpaketen einen gueltigen, paginierten Ind
 		const validator = new Validator(loadSchema("registry-index-page.schema.json"), "2020-12");
 		validateOrThrow(validator, page.content, "index/index.json");
 
-		const onDisk = JSON.parse(readFileSync(path.join(outDir, "index", "index.json"), "utf8"));
+		const onDisk = JSON.parse(readFileSync(path.join(outDir, "index", "v1", "index.json"), "utf8"));
 		assert.deepEqual(onDisk, page.content);
 	});
 
@@ -73,7 +73,7 @@ test("Builder erzeugt aus den 3 Beispielpaketen einen gueltigen, paginierten Ind
 		assert.equal(result.search.entries.length, 3);
 		assert.ok(result.search.entries.every((e) => e.keywords.length > 0));
 
-		const onDisk = JSON.parse(readFileSync(path.join(outDir, "search.json"), "utf8"));
+		const onDisk = JSON.parse(readFileSync(path.join(outDir, "index", "v1", "search.json"), "utf8"));
 		assert.deepEqual(onDisk, result.search);
 	});
 
@@ -85,7 +85,7 @@ test("Builder erzeugt aus den 3 Beispielpaketen einen gueltigen, paginierten Ind
 			["spassglas.steinbrocken-textur", "spassglas.mitternacht-theme"],
 		);
 
-		const onDisk = JSON.parse(readFileSync(path.join(outDir, "featured.json"), "utf8"));
+		const onDisk = JSON.parse(readFileSync(path.join(outDir, "index", "v1", "featured.json"), "utf8"));
 		assert.deepEqual(onDisk, result.featured);
 	});
 });
