@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-03T04:18:27.562Z",
+  "totalCount": 3,
+  "entries": [
+    {
+      "id": "spassglas.kompakt-hud",
+      "name": "Kompakt-HUD",
+      "author": "Spassglas Studio",
+      "category": "hud",
+      "keywords": [
+        "hud",
+        "kompakt",
+        "koordinaten",
+        "spassglas",
+        "studio"
+      ],
+      "tags": [
+        "hud",
+        "koordinaten",
+        "kompakt"
+      ]
+    },
+    {
+      "id": "spassglas.mitternacht-theme",
+      "name": "Mitternacht",
+      "author": "Spassglas Studio",
+      "category": "theme",
+      "keywords": [
+        "dunkel",
+        "kontrast",
+        "mitternacht",
+        "spassglas",
+        "studio",
+        "theme"
+      ],
+      "tags": [
+        "dunkel",
+        "kontrast"
+      ]
+    },
+    {
+      "id": "spassglas.steinbrocken-textur",
+      "name": "Steinbrocken",
+      "author": "Spassglas Studio",
+      "category": "texturen",
+      "keywords": [
+        "gestein",
+        "hd",
+        "spassglas",
+        "stein",
+        "steinbrocken",
+        "studio",
+        "textur"
+      ],
+      "tags": [
+        "stein",
+        "gestein",
+        "hd"
+      ]
+    }
+  ]
+}

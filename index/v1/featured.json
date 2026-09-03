@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-03T04:18:27.562Z",
+  "items": [
+    {
+      "id": "spassglas.steinbrocken-textur",
+      "order": 1,
+      "note": "Startpaket, zeigt Klasse-A-Texturen ohne Neustart."
+    },
+    {
+      "id": "spassglas.mitternacht-theme",
+      "order": 2
+    }
+  ]
+}
