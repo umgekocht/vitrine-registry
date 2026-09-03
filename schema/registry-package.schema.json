@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vitrine:schema:registry-package:v1",
+  "title": "Vitrine-Registry-Paketeintrag (packages/<id>.json)",
+  "description": "Schema fuer eine Datei unter 'packages/<id>.json' im Katalog-Repo 'vitrine-registry' (M4/K1). Ein Eintrag pro veroeffentlichtem Paket: Metadaten, Autor, Kategorie, alle Versionen mit Download-/Pruefsummen-/Signaturinfo. Der Index-Builder (registry/build-index.js) liest diese Dateien und erzeugt daraus index/index.json, search.json und featured.json. Charter-Regel 8: dasselbe Format, das der Index-Builder hier schreibt, liest spaeter der Katalog-Client im Mod (K2) -- kein zweites Format.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "name",
+    "category",
+    "author",
+    "repository",
+    "versions",
+    "latestVersion",
+    "updatedAt"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "description": "Version dieses Registry-Paketeintrag-Schemas. Aktuell fest auf 1.",
+      "type": "integer",
+      "const": 1
+    },
+    "id": {
+      "description": "Eindeutiger Paket-Bezeichner, identisch mit dem 'id'-Feld im vitrine.json-Manifest des Pakets (siehe vitrine.schema.json). Wird als Dateiname verwendet: 'packages/<id>.json'.",
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 128,
+      "pattern": "^[a-z][a-z0-9-]*(\\.[a-z][a-z0-9-]*)+$"
+    },
+    "name": {
+      "description": "Anzeigename des Pakets im Store.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "category": {
+      "description": "Marktplatz-Kategorie, dieselben Werte wie im vitrine.json-Manifest.",
+      "type": "string",
+      "enum": [
+        "texturen",
+        "theme",
+        "hud",
+        "shader",
+        "sound",
+        "sprache",
+        "cosmetics",
+        "bundle"
+      ]
+    },
+    "author": {
+      "description": "Autor/Autorin des Pakets.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "url": {
+          "description": "Optionales Autoren-Profil, nur https.",
+          "type": "string",
+          "pattern": "^https://[^\\s]+$",
+          "maxLength": 512
+        }
+      }
+    },
+    "description": {
+      "description": "Freitext-Beschreibung fuer die Detailseite im Store.",
+      "type": "string",
+      "maxLength": 2000
+    },
+    "tags": {
+      "description": "Freie Schlagworte fuer die Suche (search.json). Kleinbuchstaben, Ziffern, Bindestrich.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9-]*$",
+        "maxLength": 32
+      },
+      "uniqueItems": true,
+      "maxItems": 16
+    },
+    "icon": {
+      "description": "Absolute https-URL zu einem quadratischen PNG-Vorschausymbol (anders als im vitrine.json-Manifest: hier liegt das Icon nicht im ZIP, sondern wird ueber die Autoren-Release-Assets referenziert).",
+      "type": "string",
+      "pattern": "^https://[^\\s]+\\.png$",
+      "maxLength": 512
+    },
+    "homepage": {
+      "description": "Optionale https-Projektseite.",
+      "type": "string",
+      "pattern": "^https://[^\\s]+$",
+      "maxLength": 512
+    },
+    "license": {
+      "description": "Lizenz der Paketinhalte (betrifft nur das Paket, nicht Vitrine selbst).",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "repository": {
+      "description": "https-URL des Autoren-Repos, in dem die .vpkg-Artefakte als GitHub-Release-Assets liegen (Technische Festlegung: 'Katalog ohne Backend').",
+      "type": "string",
+      "pattern": "^https://[^\\s]+$",
+      "maxLength": 512
+    },
+    "versions": {
+      "description": "Alle veroeffentlichten Versionen dieses Pakets, aelteste zuerst empfohlen. Mindestens eine.",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 500,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "version",
+          "vpkgUrl",
+          "sha256",
+          "signature",
+          "size",
+          "publishedAt"
+        ],
+        "properties": {
+          "version": {
+            "description": "SemVer 2.0.0.",
+            "type": "string",
+            "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
+          },
+          "vpkgUrl": {
+            "description": "Absolute https-URL zum .vpkg-Release-Asset im Autoren-Repo.",
+            "type": "string",
+            "pattern": "^https://[^\\s]+\\.vpkg$",
+            "maxLength": 1024
+          },
+          "sha256": {
+            "description": "SHA-256-Pruefsumme des .vpkg-Archivs, hex, klein geschrieben (siehe mod/-seitige Pruefung P4).",
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "signature": {
+            "description": "ed25519-Signatur des .vpkg-Archivs, Base64-kodiert (siehe P4).",
+            "type": "string",
+            "pattern": "^[A-Za-z0-9+/]+={0,2}$",
+            "minLength": 20,
+            "maxLength": 256
+          },
+          "size": {
+            "description": "Groesse des .vpkg-Archivs in Bytes.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 536870912
+          },
+          "minVitrineVersion": {
+            "description": "Optionale Mindestversion des Vitrine-Mods, SemVer.",
+            "type": "string",
+            "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)$"
+          },
+          "publishedAt": {
+            "description": "Veroeffentlichungszeitpunkt dieser Version, ISO-8601/RFC-3339.",
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "latestVersion": {
+      "description": "SemVer der neuesten Version -- muss dem 'version'-Feld eines Eintrags in 'versions' entsprechen (vom Index-Builder geprueft, nicht per JSON-Schema ausdrueckbar).",
+      "type": "string",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
+    },
+    "updatedAt": {
+      "description": "Letzter Aenderungszeitpunkt dieses Registry-Eintrags (nicht des Pakets selbst).",
+      "type": "string",
+      "format": "date-time"
+    },
+    "featured": {
+      "description": "Optionale Kuratierung fuer featured.json. Ohne dieses Feld erscheint das Paket nicht in featured.json.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "order"
+      ],
+      "properties": {
+        "order": {
+          "description": "Sortierposition, aufsteigend, kleinere Zahl zuerst.",
+          "type": "integer",
+          "minimum": 0
+        },
+        "note": {
+          "description": "Kurzer Kurationstext, z. B. warum das Paket hervorgehoben wird.",
+          "type": "string",
+          "maxLength": 200
+        }
+      }
+    }
+  }
+}
