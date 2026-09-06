@@ -12,7 +12,7 @@
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { mkdtempSync, readFileSync, rmSync } from "node:fs";
+import { copyFileSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -21,8 +21,29 @@ import { buildIndex } from "../build-index.js";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const registryRoot = path.join(here, "..");
-const packagesDir = path.join(registryRoot, "packages");
+const livePackagesDir = path.join(registryRoot, "packages");
 const schemaDir = path.join(registryRoot, "schema");
+
+// Die 3 urspruenglichen K1-Beispielpakete, namentlich fest -- NICHT einfach
+// "alles in registry/packages/" lesen. Sobald echte Pakete per `cli publish`
+// (D9) per PR dazukommen, waechst registry/packages/ ueber diese 3 hinaus;
+// dieser Test bleibt trotzdem bei den 3 urspruenglichen Fixtures, indem er
+// sie in ein isoliertes Temp-Verzeichnis kopiert, statt registry/packages/
+// direkt zu lesen.
+const FIXTURE_PACKAGE_FILES = [
+	"spassglas.kompakt-hud.json",
+	"spassglas.mitternacht-theme.json",
+	"spassglas.steinbrocken-textur.json",
+];
+
+function makeFixturePackagesDir(t) {
+	const dir = mkdtempSync(path.join(tmpdir(), "vitrine-registry-fixture-packages-"));
+	t.after(() => rmSync(dir, { recursive: true, force: true }));
+	for (const fileName of FIXTURE_PACKAGE_FILES) {
+		copyFileSync(path.join(livePackagesDir, fileName), path.join(dir, fileName));
+	}
+	return dir;
+}
 
 function loadSchema(name) {
 	return JSON.parse(readFileSync(path.join(schemaDir, name), "utf8"));
@@ -36,6 +57,7 @@ function validateOrThrow(validator, data, label) {
 }
 
 test("Builder erzeugt aus den 3 Beispielpaketen einen gueltigen, paginierten Index", async (t) => {
+	const packagesDir = makeFixturePackagesDir(t);
 	const outDir = mkdtempSync(path.join(tmpdir(), "vitrine-registry-test-"));
 	t.after(() => rmSync(outDir, { recursive: true, force: true }));
 
@@ -91,6 +113,7 @@ test("Builder erzeugt aus den 3 Beispielpaketen einen gueltigen, paginierten Ind
 });
 
 test("Builder paginiert bei kleiner pageSize ueber mehrere Seiten", async (t) => {
+	const packagesDir = makeFixturePackagesDir(t);
 	const outDir = mkdtempSync(path.join(tmpdir(), "vitrine-registry-test-page-"));
 	t.after(() => rmSync(outDir, { recursive: true, force: true }));
 
