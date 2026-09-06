@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "umgekocht.d8-probe",
+  "name": "D8 Nachweis-Paket",
+  "category": "texturen",
+  "author": {
+    "name": "umgekocht"
+  },
+  "repository": "https://github.com/umgekocht/vitrine-package-template-probe",
+  "versions": [
+    {
+      "version": "1.0.2",
+      "vpkgUrl": "https://github.com/umgekocht/vitrine-package-template-probe/releases/download/v1.0.2/umgekocht.d8-probe-1.0.2.vpkg",
+      "sha256": "4d4cbb31746480541fbadae27f9e4f5d4df9c642d7245fb97de866feea7ef543",
+      "signature": "ByuGmrWEaAVflIGDHQVtonYMDAi7uco9XCdG9sEGgeUGgSfvakpvBTzDBx4TppFFJSnHb5ToLvPXY97R55GKBA==",
+      "size": 2434,
+      "publishedAt": "2026-09-06T13:40:11.887Z"
+    }
+  ],
+  "latestVersion": "1.0.2",
+  "updatedAt": "2026-09-06T13:40:11.887Z",
+  "description": "D8-Nachweis: per \"Use this template\" erzeugtes Repo, Tag setzt automatisch ein Release mit .vpkg-Asset frei.",
+  "license": "CC0-1.0"
+}
