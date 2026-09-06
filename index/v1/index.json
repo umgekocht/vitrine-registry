@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-03T04:18:27.562Z",
+  "generatedAt": "2026-09-06T13:44:06.382Z",
   "page": 1,
   "pageSize": 24,
   "totalPages": 1,
-  "totalCount": 3,
+  "totalCount": 4,
   "nextPage": null,
   "previousPage": null,
   "packages": [
@@ -37,6 +37,15 @@
       "updatedAt": "2026-09-01T09:00:00Z",
       "icon": "https://raw.githubusercontent.com/umgekocht/vitrine-packs-starter/main/steinbrocken-textur/icon.png",
       "shortDescription": "Hochaufgeloeste Stein- und Erz-Texturen im rauen Steinbruch-Stil."
+    },
+    {
+      "id": "umgekocht.d8-probe",
+      "name": "D8 Nachweis-Paket",
+      "author": "umgekocht",
+      "category": "texturen",
+      "latestVersion": "1.0.2",
+      "updatedAt": "2026-09-06T13:40:11.887Z",
+      "shortDescription": "D8-Nachweis: per \"Use this template\" erzeugtes Repo, Tag setzt automatisch ein Release mit .vpkg-Asset frei."
     }
   ]
 }

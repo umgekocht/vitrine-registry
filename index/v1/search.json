@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-03T04:18:27.562Z",
-  "totalCount": 3,
+  "generatedAt": "2026-09-06T13:44:06.382Z",
+  "totalCount": 4,
   "entries": [
     {
       "id": "spassglas.kompakt-hud",
@@ -57,6 +57,19 @@
         "stein",
         "gestein",
         "hd"
+      ]
+    },
+    {
+      "id": "umgekocht.d8-probe",
+      "name": "D8 Nachweis-Paket",
+      "author": "umgekocht",
+      "category": "texturen",
+      "keywords": [
+        "d8",
+        "nachweis",
+        "paket",
+        "probe",
+        "umgekocht"
       ]
     }
   ]
