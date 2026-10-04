@@ -20,14 +20,14 @@
     {
       "version": "1.0.0",
       "vpkgUrl": "https://github.com/umgekocht/vitrine-packs-starter/releases/download/mitternacht-theme-v1.0.0/mitternacht-theme.vpkg",
-      "sha256": "b0c739cf8792cfd92f76255d0901a730170a5315b85dadcb880ac0580899822b",
-      "signature": "SACsxAe/7y2uPtARlotn1WE6cOwvZSZ+QpOpE71FoUfUrVzoXi/mK3rUKFkAnvR2aP02U+WPj/pMZsyHbO/bDQ==",
-      "size": 61440,
-      "publishedAt": "2026-08-20T09:00:00Z"
+      "sha256": "8683dfe4dc760283cb50ef71af2b163807150018fcf33ac196c3d286dc17ad78",
+      "signature": "oyvfFJcN35ZOUdqf3vCe1msLeOLOJZnf4KXiK8Fkv4veCBDpGpfW9EGFSXeMpo/2MFTtO+A6d7gAD9n1y9zgAg==",
+      "size": 1733,
+      "publishedAt": "2026-09-19T12:30:17Z"
     }
   ],
   "latestVersion": "1.0.0",
-  "updatedAt": "2026-08-20T09:00:00Z",
+  "updatedAt": "2026-09-19T12:30:17Z",
   "featured": {
     "order": 2
   }
