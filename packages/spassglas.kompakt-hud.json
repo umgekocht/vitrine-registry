@@ -7,11 +7,16 @@
     "name": "Spassglas Studio",
     "url": "https://github.com/umgekocht"
   },
-  "repository": "https://github.com/umgekocht/vitrine-packs-starter",
-  "description": "Platzsparendes HUD-Modul: Koordinaten, Uhrzeit und Fps kompakt in einer Ecke, ohne eine Zeile Java im Paket.",
-  "license": "CC-BY-4.0",
+  "description": "Platzsparendes HUD-Modul: Koordinaten, Uhrzeit und Fps in einer Zeile.",
+  "tags": [
+    "hud",
+    "koordinaten",
+    "kompakt"
+  ],
   "icon": "https://raw.githubusercontent.com/umgekocht/vitrine-packs-starter/main/kompakt-hud/icon.png",
   "homepage": "https://github.com/umgekocht/vitrine-packs-starter",
+  "license": "CC-BY-4.0",
+  "repository": "https://github.com/umgekocht/vitrine-packs-starter",
   "versions": [
     {
       "version": "1.0.0",

@@ -7,11 +7,15 @@
     "name": "Spassglas Studio",
     "url": "https://github.com/umgekocht"
   },
-  "repository": "https://github.com/umgekocht/vitrine-packs-starter",
   "description": "Dunkles Store-Theme mit hohem Kontrast fuer Sessions am Abend.",
-  "license": "CC-BY-4.0",
+  "tags": [
+    "dunkel",
+    "kontrast"
+  ],
   "icon": "https://raw.githubusercontent.com/umgekocht/vitrine-packs-starter/main/mitternacht-theme/icon.png",
   "homepage": "https://github.com/umgekocht/vitrine-packs-starter",
+  "license": "CC-BY-4.0",
+  "repository": "https://github.com/umgekocht/vitrine-packs-starter",
   "versions": [
     {
       "version": "1.0.0",
@@ -23,5 +27,8 @@
     }
   ],
   "latestVersion": "1.0.0",
-  "updatedAt": "2026-09-19T12:30:17Z"
+  "updatedAt": "2026-09-19T12:30:17Z",
+  "featured": {
+    "order": 2
+  }
 }

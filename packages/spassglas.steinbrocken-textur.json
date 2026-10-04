@@ -7,11 +7,15 @@
     "name": "Spassglas Studio",
     "url": "https://github.com/umgekocht"
   },
-  "repository": "https://github.com/umgekocht/vitrine-packs-starter",
-  "description": "Platzhalter-Steintexturen im rauen Grauton -- Stein, Pflasterstein, Eisenerz. Ersetzt vanilla, bis ein handgezeichnetes Set nachkommt (siehe ASSETS-NEEDED.md).",
-  "license": "CC-BY-4.0",
+  "description": "Hochaufgeloeste Stein- und Erz-Texturen im rauen Steinbruch-Stil.",
+  "tags": [
+    "stein",
+    "gestein"
+  ],
   "icon": "https://raw.githubusercontent.com/umgekocht/vitrine-packs-starter/main/steinbrocken-textur/icon.png",
   "homepage": "https://github.com/umgekocht/vitrine-packs-starter",
+  "license": "CC-BY-4.0",
+  "repository": "https://github.com/umgekocht/vitrine-packs-starter",
   "versions": [
     {
       "version": "1.0.0",
@@ -23,5 +27,9 @@
     }
   ],
   "latestVersion": "1.0.0",
-  "updatedAt": "2026-09-19T12:30:20Z"
+  "updatedAt": "2026-09-19T12:30:20Z",
+  "featured": {
+    "order": 1,
+    "note": "Startpaket, zeigt Klasse-A-Texturen ohne Neustart."
+  }
 }
