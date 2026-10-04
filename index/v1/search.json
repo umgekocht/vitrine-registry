@@ -1,8 +1,27 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-06T13:44:06.382Z",
-  "totalCount": 4,
+  "generatedAt": "2026-10-04T09:52:30.336Z",
+  "totalCount": 5,
   "entries": [
+    {
+      "id": "spassglas.knapp-deutsch",
+      "name": "Knapp-Deutsch",
+      "author": "Spassglas Studio",
+      "category": "sprache",
+      "keywords": [
+        "deutsch",
+        "knapp",
+        "menue",
+        "spassglas",
+        "sprache",
+        "studio"
+      ],
+      "tags": [
+        "sprache",
+        "deutsch",
+        "menue"
+      ]
+    },
     {
       "id": "spassglas.kompakt-hud",
       "name": "Kompakt-HUD",
@@ -46,7 +65,6 @@
       "category": "texturen",
       "keywords": [
         "gestein",
-        "hd",
         "spassglas",
         "stein",
         "steinbrocken",
@@ -55,21 +73,26 @@
       ],
       "tags": [
         "stein",
-        "gestein",
-        "hd"
+        "gestein"
       ]
     },
     {
-      "id": "umgekocht.d8-probe",
-      "name": "D8 Nachweis-Paket",
-      "author": "umgekocht",
-      "category": "texturen",
+      "id": "spassglas.tageslicht-theme",
+      "name": "Tageslicht",
+      "author": "Spassglas Studio",
+      "category": "theme",
       "keywords": [
-        "d8",
-        "nachweis",
-        "paket",
-        "probe",
-        "umgekocht"
+        "hell",
+        "spassglas",
+        "studio",
+        "tageslicht",
+        "theme",
+        "warm"
+      ],
+      "tags": [
+        "theme",
+        "hell",
+        "warm"
       ]
     }
   ]

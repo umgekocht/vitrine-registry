@@ -1,20 +1,30 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-06T13:44:06.382Z",
+  "generatedAt": "2026-10-04T09:52:30.336Z",
   "page": 1,
   "pageSize": 24,
   "totalPages": 1,
-  "totalCount": 4,
+  "totalCount": 5,
   "nextPage": null,
   "previousPage": null,
   "packages": [
+    {
+      "id": "spassglas.knapp-deutsch",
+      "name": "Knapp-Deutsch",
+      "author": "Spassglas Studio",
+      "category": "sprache",
+      "latestVersion": "1.0.0",
+      "updatedAt": "2026-10-04T09:49:21Z",
+      "icon": "https://raw.githubusercontent.com/umgekocht/vitrine-packs-starter/main/knapp-deutsch/icon.png",
+      "shortDescription": "Kurze deutsche Menütexte: Allein, Zusammen, Weiter -- statt der langen Originale. Ohne Neustart."
+    },
     {
       "id": "spassglas.kompakt-hud",
       "name": "Kompakt-HUD",
       "author": "Spassglas Studio",
       "category": "hud",
-      "latestVersion": "0.9.0",
-      "updatedAt": "2026-08-25T09:00:00Z",
+      "latestVersion": "1.0.0",
+      "updatedAt": "2026-09-19T12:30:18Z",
       "icon": "https://raw.githubusercontent.com/umgekocht/vitrine-packs-starter/main/kompakt-hud/icon.png",
       "shortDescription": "Platzsparendes HUD-Modul: Koordinaten, Uhrzeit und Fps in einer Zeile."
     },
@@ -24,7 +34,7 @@
       "author": "Spassglas Studio",
       "category": "theme",
       "latestVersion": "1.0.0",
-      "updatedAt": "2026-08-20T09:00:00Z",
+      "updatedAt": "2026-09-19T12:30:17Z",
       "icon": "https://raw.githubusercontent.com/umgekocht/vitrine-packs-starter/main/mitternacht-theme/icon.png",
       "shortDescription": "Dunkles Store-Theme mit hohem Kontrast fuer Sessions am Abend."
     },
@@ -33,19 +43,20 @@
       "name": "Steinbrocken",
       "author": "Spassglas Studio",
       "category": "texturen",
-      "latestVersion": "1.1.0",
-      "updatedAt": "2026-09-01T09:00:00Z",
+      "latestVersion": "1.0.0",
+      "updatedAt": "2026-09-19T12:30:20Z",
       "icon": "https://raw.githubusercontent.com/umgekocht/vitrine-packs-starter/main/steinbrocken-textur/icon.png",
-      "shortDescription": "Hochaufgeloeste Stein- und Erz-Texturen im rauen Steinbruch-Stil."
+      "shortDescription": "Platzhalter-Steintexturen im rauen Grauton -- Stein, Pflasterstein, Eisenerz. Ersetzt Vanilla, bis ein handgezeichnetes Set nachkommt."
     },
     {
-      "id": "umgekocht.d8-probe",
-      "name": "D8 Nachweis-Paket",
-      "author": "umgekocht",
-      "category": "texturen",
-      "latestVersion": "1.0.2",
-      "updatedAt": "2026-09-06T13:40:11.887Z",
-      "shortDescription": "D8-Nachweis: per \"Use this template\" erzeugtes Repo, Tag setzt automatisch ein Release mit .vpkg-Asset frei."
+      "id": "spassglas.tageslicht-theme",
+      "name": "Tageslicht",
+      "author": "Spassglas Studio",
+      "category": "theme",
+      "latestVersion": "1.0.0",
+      "updatedAt": "2026-10-04T09:49:19Z",
+      "icon": "https://raw.githubusercontent.com/umgekocht/vitrine-packs-starter/main/tageslicht-theme/icon.png",
+      "shortDescription": "Warmes Store-Theme mit Bernstein-Akzent -- hell am Tag, ruhig am Abend."
     }
   ]
 }
