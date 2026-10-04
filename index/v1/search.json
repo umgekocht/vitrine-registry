@@ -1,8 +1,26 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-04T09:52:30.336Z",
-  "totalCount": 5,
+  "generatedAt": "2026-10-04T12:17:24.341Z",
+  "totalCount": 6,
   "entries": [
+    {
+      "id": "spassglas.holzbretter-textur",
+      "name": "Holzbretter",
+      "author": "Spassglas Studio",
+      "category": "texturen",
+      "keywords": [
+        "bretter",
+        "holz",
+        "holzbretter",
+        "spassglas",
+        "studio",
+        "textur"
+      ],
+      "tags": [
+        "holz",
+        "bretter"
+      ]
+    },
     {
       "id": "spassglas.knapp-deutsch",
       "name": "Knapp-Deutsch",
