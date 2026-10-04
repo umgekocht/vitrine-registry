@@ -7,38 +7,21 @@
     "name": "Spassglas Studio",
     "url": "https://github.com/umgekocht"
   },
-  "description": "Hochaufgeloeste Stein- und Erz-Texturen im rauen Steinbruch-Stil.",
-  "tags": [
-    "stein",
-    "gestein",
-    "hd"
-  ],
+  "repository": "https://github.com/umgekocht/vitrine-packs-starter",
+  "description": "Platzhalter-Steintexturen im rauen Grauton -- Stein, Pflasterstein, Eisenerz. Ersetzt vanilla, bis ein handgezeichnetes Set nachkommt (siehe ASSETS-NEEDED.md).",
+  "license": "CC-BY-4.0",
   "icon": "https://raw.githubusercontent.com/umgekocht/vitrine-packs-starter/main/steinbrocken-textur/icon.png",
   "homepage": "https://github.com/umgekocht/vitrine-packs-starter",
-  "license": "CC-BY-4.0",
-  "repository": "https://github.com/umgekocht/vitrine-packs-starter",
   "versions": [
     {
       "version": "1.0.0",
       "vpkgUrl": "https://github.com/umgekocht/vitrine-packs-starter/releases/download/steinbrocken-textur-v1.0.0/steinbrocken-textur.vpkg",
-      "sha256": "6640f031f8e298e3372cf0c619693a06ab2e7a616b72408691155947885e5394",
-      "signature": "z0JAuQgMgktYbnF552qddrbNtSuXHmuIyrZJllBamXE9lG77lyYuc5dUlpR0FBNDw1uqLFt1i8A1kMAylLaWBg==",
-      "size": 2415616,
-      "publishedAt": "2026-08-15T09:00:00Z"
-    },
-    {
-      "version": "1.1.0",
-      "vpkgUrl": "https://github.com/umgekocht/vitrine-packs-starter/releases/download/steinbrocken-textur-v1.1.0/steinbrocken-textur.vpkg",
-      "sha256": "6cd6c81e8ba00a9cfd29666938760c9568f8520b1f980108daea9e08e71147df",
-      "signature": "exIdPiQGgV/QnTpi0o3Ksb2wET8NAeKtp829PFERpr6XcJMIwVByPFLmz4yxvd2htEhp/uK8oTz2raSKPJrotg==",
-      "size": 2532352,
-      "publishedAt": "2026-09-01T09:00:00Z"
+      "sha256": "2faaa323dc89df2207813eb07fb76ef18c8bcbcd317015e1a933002b8038e681",
+      "signature": "e/18jD9gB03hwFXaDrVEenoVNaTVmZlaUbUSbwbkyDKuVvcUqfH3Jx6RhrzJ/1edmJ+MV/oF+FwiWib7jSGKCg==",
+      "size": 1418,
+      "publishedAt": "2026-09-19T12:30:20Z"
     }
   ],
-  "latestVersion": "1.1.0",
-  "updatedAt": "2026-09-01T09:00:00Z",
-  "featured": {
-    "order": 1,
-    "note": "Startpaket, zeigt Klasse-A-Texturen ohne Neustart."
-  }
+  "latestVersion": "1.0.0",
+  "updatedAt": "2026-09-19T12:30:20Z"
 }
