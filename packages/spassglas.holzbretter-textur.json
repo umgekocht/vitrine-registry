@@ -4,8 +4,17 @@
   "name": "Holzbretter",
   "category": "texturen",
   "author": {
-    "name": "Spassglas Studio"
+    "name": "Spassglas Studio",
+    "url": "https://github.com/umgekocht"
   },
+  "description": "Platzhalter-Holzbretter in drei Brauntoenen -- Eiche, Fichte, Birke. Ersetzt vanilla, bis ein handgezeichnetes Set nachkommt.",
+  "tags": [
+    "holz",
+    "bretter"
+  ],
+  "icon": "https://raw.githubusercontent.com/umgekocht/vitrine-packs-starter/main/holzbretter-textur/icon.png",
+  "homepage": "https://github.com/umgekocht/vitrine-packs-starter",
+  "license": "CC-BY-4.0",
   "repository": "https://github.com/umgekocht/vitrine-packs-starter",
   "versions": [
     {
@@ -18,7 +27,5 @@
     }
   ],
   "latestVersion": "1.0.0",
-  "updatedAt": "2026-10-04T12:15:50.496Z",
-  "description": "Platzhalter-Holzbretter in drei Brauntoenen -- Eiche, Fichte, Birke. Ersetzt vanilla, bis ein handgezeichnetes Set nachkommt.",
-  "license": "CC-BY-4.0"
+  "updatedAt": "2026-10-04T12:15:50.496Z"
 }
