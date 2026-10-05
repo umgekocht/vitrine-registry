@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-05T16:41:09.904Z",
+  "generatedAt": "2026-10-05T21:24:36.368Z",
   "totalCount": 6,
   "entries": [
     {
@@ -8,6 +8,7 @@
       "name": "Holzbretter",
       "author": "Spassglas Studio",
       "category": "texturen",
+      "license": "CC-BY-4.0",
       "keywords": [
         "bretter",
         "holz",
@@ -26,6 +27,7 @@
       "name": "Knapp-Deutsch",
       "author": "Spassglas Studio",
       "category": "sprache",
+      "license": "CC-BY-4.0",
       "keywords": [
         "deutsch",
         "knapp",
@@ -45,6 +47,7 @@
       "name": "Kompakt-HUD",
       "author": "Spassglas Studio",
       "category": "hud",
+      "license": "CC-BY-4.0",
       "keywords": [
         "hud",
         "kompakt",
@@ -63,6 +66,7 @@
       "name": "Mitternacht",
       "author": "Spassglas Studio",
       "category": "theme",
+      "license": "CC-BY-4.0",
       "keywords": [
         "dunkel",
         "kontrast",
@@ -81,6 +85,7 @@
       "name": "Steinbrocken",
       "author": "Spassglas Studio",
       "category": "texturen",
+      "license": "CC-BY-4.0",
       "keywords": [
         "gestein",
         "spassglas",
@@ -99,6 +104,7 @@
       "name": "Tageslicht",
       "author": "Spassglas Studio",
       "category": "theme",
+      "license": "CC-BY-4.0",
       "keywords": [
         "hell",
         "spassglas",

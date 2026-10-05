@@ -1,25 +1,29 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-05T16:41:09.904Z",
+  "generatedAt": "2026-10-05T21:24:36.368Z",
   "items": [
     {
       "id": "spassglas.steinbrocken-textur",
       "order": 1,
+      "license": "CC-BY-4.0",
       "note": "Startpaket, zeigt Klasse-A-Texturen ohne Neustart."
     },
     {
       "id": "spassglas.mitternacht-theme",
-      "order": 2
+      "order": 2,
+      "license": "CC-BY-4.0"
     }
   ],
   "popular": [
     {
       "id": "spassglas.mitternacht-theme",
-      "order": 1
+      "order": 1,
+      "license": "CC-BY-4.0"
     },
     {
       "id": "spassglas.kompakt-hud",
       "order": 2,
+      "license": "CC-BY-4.0",
       "note": "Meistgenutztes HUD-Modul aus den Starter-Paketen."
     }
   ]

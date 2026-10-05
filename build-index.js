@@ -213,6 +213,10 @@ function buildIndexPages(packages, { pageSize, now }) {
 						name: pkg.name,
 						author: pkg.author.name,
 						category: pkg.category,
+						// GATE101: 'license' in die Kurzuebersicht uebernehmen, damit
+						// die Kachelansicht im Mod sie zeigen kann, ohne vorher die
+						// Detailseite zu laden.
+						license: pkg.license,
 						latestVersion: pkg.latestVersion,
 						updatedAt: pkg.updatedAt,
 					};
@@ -242,6 +246,8 @@ function buildSearch(packages, { now }) {
 				name: pkg.name,
 				author: pkg.author.name,
 				category: pkg.category,
+				// GATE101: siehe buildIndexPages oben, derselbe Grund.
+				license: pkg.license,
 				keywords: keywordsFor(pkg),
 			};
 			if (pkg.tags) entry.tags = pkg.tags;
@@ -261,7 +267,8 @@ function buildCurationList(packages, fieldName) {
 		.filter((pkg) => pkg[fieldName])
 		.sort((a, b) => a[fieldName].order - b[fieldName].order)
 		.map((pkg) => {
-			const item = { id: pkg.id, order: pkg[fieldName].order };
+			// GATE101: 'license' auch hier mitgeben, siehe buildIndexPages oben.
+			const item = { id: pkg.id, order: pkg[fieldName].order, license: pkg.license };
 			if (pkg[fieldName].note) item.note = pkg[fieldName].note;
 			return item;
 		});

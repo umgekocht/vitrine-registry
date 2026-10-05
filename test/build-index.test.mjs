@@ -81,6 +81,9 @@ test("Builder erzeugt aus den 3 Beispielpaketen einen gueltigen, paginierten Ind
 		assert.equal(page.content.nextPage, null);
 		assert.equal(page.content.previousPage, null);
 		assert.equal(page.content.packages.length, 3);
+		// GATE101: Kachelansicht im Mod braucht 'license' schon im Index, ohne
+		// vorher die Detailseite zu laden.
+		assert.ok(page.content.packages.every((p) => p.license === "CC-BY-4.0"));
 
 		const validator = new Validator(loadSchema("registry-index-page.schema.json"), "2020-12");
 		validateOrThrow(validator, page.content, "index/index.json");
@@ -94,6 +97,8 @@ test("Builder erzeugt aus den 3 Beispielpaketen einen gueltigen, paginierten Ind
 		validateOrThrow(validator, result.search, "search.json");
 		assert.equal(result.search.entries.length, 3);
 		assert.ok(result.search.entries.every((e) => e.keywords.length > 0));
+		// GATE101: siehe index/index.json oben, derselbe Grund.
+		assert.ok(result.search.entries.every((e) => e.license === "CC-BY-4.0"));
 
 		const onDisk = JSON.parse(readFileSync(path.join(outDir, "index", "v1", "search.json"), "utf8"));
 		assert.deepEqual(onDisk, result.search);
@@ -106,6 +111,8 @@ test("Builder erzeugt aus den 3 Beispielpaketen einen gueltigen, paginierten Ind
 			result.featured.items.map((i) => i.id),
 			["spassglas.steinbrocken-textur", "spassglas.mitternacht-theme"],
 		);
+		// GATE101: siehe index/index.json oben, derselbe Grund.
+		assert.ok(result.featured.items.every((i) => i.license === "CC-BY-4.0"));
 
 		const onDisk = JSON.parse(readFileSync(path.join(outDir, "index", "v1", "featured.json"), "utf8"));
 		assert.deepEqual(onDisk, result.featured);

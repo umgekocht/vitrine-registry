@@ -36,6 +36,7 @@
           "name",
           "author",
           "category",
+          "license",
           "keywords"
         ],
         "properties": {
@@ -67,6 +68,12 @@
               "cosmetics",
               "bundle"
             ]
+          },
+          "license": {
+            "description": "Lizenz der Paketinhalte (GATE101), abgeflacht aus 'license' im Paketeintrag -- erlaubt der Kachelansicht im Mod, die Lizenz anzuzeigen, ohne vorher die Detailseite zu laden.",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
           },
           "tags": {
             "type": "array",
