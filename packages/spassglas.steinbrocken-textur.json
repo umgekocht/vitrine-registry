@@ -24,10 +24,18 @@
       "signature": "e/18jD9gB03hwFXaDrVEenoVNaTVmZlaUbUSbwbkyDKuVvcUqfH3Jx6RhrzJ/1edmJ+MV/oF+FwiWib7jSGKCg==",
       "size": 1418,
       "publishedAt": "2026-09-19T12:30:35Z"
+    },
+    {
+      "version": "1.0.1",
+      "vpkgUrl": "https://github.com/umgekocht/vitrine-packs-starter/releases/download/steinbrocken-textur-v1.0.1/steinbrocken-textur.vpkg",
+      "sha256": "aae9f324722349fdd39e9f93be4c1a4e5026fe3415af3f9eb180e359a744d7ce",
+      "signature": "hV3Pz2xPIQHFBp50MWjyNhTJyMHNiguzZ7PwTp2UCyM8CYFkiGp6hppTuxQCtktuujHBnVk1x0y+TwvxCzOADQ==",
+      "size": 7448,
+      "publishedAt": "2026-10-05T22:39:30.913Z"
     }
   ],
-  "latestVersion": "1.0.0",
-  "updatedAt": "2026-09-19T12:30:35Z",
+  "latestVersion": "1.0.1",
+  "updatedAt": "2026-10-05T22:39:30.913Z",
   "featured": {
     "order": 1,
     "note": "Startpaket, zeigt Klasse-A-Texturen ohne Neustart."

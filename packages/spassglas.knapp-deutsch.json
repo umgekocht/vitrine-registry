@@ -20,10 +20,18 @@
       "signature": "EI4Zgf+FTAYVqE06xBzY4BogRcNQi8kr10frTgDAfKNKLV5avQuWUwvcLGbEcjyPhLlKhV+pDhwp/GK+kN8tDQ==",
       "size": 900,
       "publishedAt": "2026-10-04T09:49:21Z"
+    },
+    {
+      "version": "1.0.1",
+      "vpkgUrl": "https://github.com/umgekocht/vitrine-packs-starter/releases/download/knapp-deutsch-v1.0.1/knapp-deutsch.vpkg",
+      "sha256": "e89a78bf550b0ec1ebc87c6580013e6e4112d0a4fc6816377054ab55d0c2f88c",
+      "signature": "JmMGRLZyEnbwWo3dRwHIagI0ti5NKlrUrBG18vDUK5JcnVqR3Qs85XVM0ce0rZHEWNTeN6bmGhRl48+GYt1XDw==",
+      "size": 6929,
+      "publishedAt": "2026-10-05T22:39:30.870Z"
     }
   ],
-  "latestVersion": "1.0.0",
-  "updatedAt": "2026-10-04T09:49:21Z",
+  "latestVersion": "1.0.1",
+  "updatedAt": "2026-10-05T22:39:30.870Z",
   "tags": [
     "sprache",
     "deutsch",

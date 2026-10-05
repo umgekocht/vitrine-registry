@@ -25,10 +25,18 @@
       "signature": "LFhrTUXfIwnfgBrVOAqMU1YWl3Hfh4h+iIyjGhPWvlljHbxfyDWPUGxj+wJjY/lsGiorVE4cssq73VS2WJT0Bw==",
       "size": 1031,
       "publishedAt": "2026-09-19T12:30:35Z"
+    },
+    {
+      "version": "1.0.1",
+      "vpkgUrl": "https://github.com/umgekocht/vitrine-packs-starter/releases/download/kompakt-hud-v1.0.1/kompakt-hud.vpkg",
+      "sha256": "958ba00da8e8e81800d7421a1f2b8eabab5a1b258fd980823b084790adf55e1f",
+      "signature": "o594QkWRnv30QiDMuoAvdyCfIooobXN0jGCBejNAQl1lNCuGQnhqUHT/rFmV/opAnsq+alkqwcOy04bUS+tiCA==",
+      "size": 7066,
+      "publishedAt": "2026-10-05T22:39:30.884Z"
     }
   ],
-  "latestVersion": "1.0.0",
-  "updatedAt": "2026-09-19T12:30:35Z",
+  "latestVersion": "1.0.1",
+  "updatedAt": "2026-10-05T22:39:30.884Z",
   "popular": {
     "order": 2,
     "note": "Meistgenutztes HUD-Modul aus den Starter-Paketen."
