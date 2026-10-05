@@ -23,12 +23,15 @@
       "sha256": "8683dfe4dc760283cb50ef71af2b163807150018fcf33ac196c3d286dc17ad78",
       "signature": "oyvfFJcN35ZOUdqf3vCe1msLeOLOJZnf4KXiK8Fkv4veCBDpGpfW9EGFSXeMpo/2MFTtO+A6d7gAD9n1y9zgAg==",
       "size": 1733,
-      "publishedAt": "2026-09-19T12:30:17Z"
+      "publishedAt": "2026-09-19T12:30:35Z"
     }
   ],
   "latestVersion": "1.0.0",
-  "updatedAt": "2026-09-19T12:30:17Z",
+  "updatedAt": "2026-09-19T12:30:35Z",
   "featured": {
     "order": 2
+  },
+  "popular": {
+    "order": 1
   }
 }

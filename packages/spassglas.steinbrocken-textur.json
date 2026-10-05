@@ -7,7 +7,7 @@
     "name": "Spassglas Studio",
     "url": "https://github.com/umgekocht"
   },
-  "description": "Platzhalter-Steintexturen im rauen Grauton -- Stein, Pflasterstein, Eisenerz. Ersetzt Vanilla, bis ein handgezeichnetes Set nachkommt.",
+  "description": "Platzhalter-Steintexturen im rauen Grauton -- Stein, Pflasterstein, Eisenerz. Ersetzt vanilla, bis ein handgezeichnetes Set nachkommt.",
   "tags": [
     "stein",
     "gestein"
@@ -23,11 +23,11 @@
       "sha256": "2faaa323dc89df2207813eb07fb76ef18c8bcbcd317015e1a933002b8038e681",
       "signature": "e/18jD9gB03hwFXaDrVEenoVNaTVmZlaUbUSbwbkyDKuVvcUqfH3Jx6RhrzJ/1edmJ+MV/oF+FwiWib7jSGKCg==",
       "size": 1418,
-      "publishedAt": "2026-09-19T12:30:20Z"
+      "publishedAt": "2026-09-19T12:30:35Z"
     }
   ],
   "latestVersion": "1.0.0",
-  "updatedAt": "2026-09-19T12:30:20Z",
+  "updatedAt": "2026-09-19T12:30:35Z",
   "featured": {
     "order": 1,
     "note": "Startpaket, zeigt Klasse-A-Texturen ohne Neustart."

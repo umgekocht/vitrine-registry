@@ -7,8 +7,8 @@
   "author": "Spassglas Studio",
   "description": "Das Standard-Theme fuer den Vitrine-Store: klar, graustufig, hoher Kontrast.",
   "capabilities": [
-    "theme.tokens.read",
-    "hud.read"
+    "theme",
+    "hud"
   ],
   "icon": "icon.png",
   "screenshots": [

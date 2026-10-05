@@ -40,14 +40,21 @@ Request.
    | `name` | Anzeigename im Store |
    | `category` | eine von `texturen`, `theme`, `hud`, `shader`, `sound`, `sprache`, `cosmetics`, `bundle` |
    | `author.name` | dein Name/Pseudonym |
+   | `license` | Kurzbezeichner von der [Lizenz-Whitelist](LICENSE-WHITELIST.md), z. B. `CC-BY-4.0` oder `CC0-1.0` — Index-Bau und PR-Prüfung lehnen nicht-whitelistete Werte automatisiert ab (siehe `license-policy.mjs`) |
    | `repository` | https-URL deines Repos (wo die Release-Assets liegen) |
    | `versions[]` | mindestens eine Version: `version` (SemVer), `vpkgUrl` (https, endet auf `.vpkg`), `sha256` (64 Hex-Zeichen), `signature` (Base64), `size` (Bytes), `publishedAt` (ISO-8601) |
    | `latestVersion` | SemVer eines Eintrags aus `versions[]`, muss die höchste sein |
    | `updatedAt` | ISO-8601, wann dieser Registry-Eintrag zuletzt geändert wurde |
 
-   Optional: `description`, `tags`, `icon` (https, `.png`), `homepage`,
-   `license`, `featured` (nur für kuratierte Auswahl, i. d. R. nicht von dir
-   selbst gesetzt).
+   Optional: `description`, `tags`, `icon` (https, `.png`), `homepage`.
+   Lass `featured` und `popular` weg — beide Felder sind reine
+   Redaktionsfelder für die Startseite ("Featured" bzw. "Beliebt") und werden
+   ausschließlich von den Registry-Maintainern bei der PR-Prüfung gesetzt,
+   nie vom Autor selbst (Interessenkonflikt). `popular` ist keine gemessene
+   Downloadzahl — dieser Katalog hat bewusst kein Backend, das sowas seriös
+   erfassen könnte, sondern eine redaktionelle Einschätzung wie `featured`.
+   Enthält dein PR eines dieser Felder, wird es beim Review entfernt oder der
+   PR zurückgewiesen.
 
 4. **Lokal prüfen, bevor der PR raus geht:**
 
@@ -83,9 +90,13 @@ Release wie in Schritt 1–2 anlegen, dann in deiner bestehenden
 - `latestVersion` zeigt auf keine oder nicht die höchste Version in `versions[]`.
 - `id` kollidiert mit einem bestehenden Eintrag eines anderen Autors.
 - Lizenz steht nicht auf der [Whitelist](LICENSE-WHITELIST.md) oder verlangt
-  Geld/Konto für den Inhalt (Charter-Regel 1).
+  Geld/Konto für den Inhalt (Charter-Regel 1). Wird seit GATE23 automatisiert
+  von `registry/license-policy.mjs` geprüft, nicht mehr nur beim manuellen
+  Review.
 - `.vpkg` liegt nicht als Release-Asset in einem https-Repo (keine
   Datei-Uploads in diesen Katalog).
+- Dein PR setzt `featured` oder `popular` selbst — das entscheiden nur die
+  Registry-Maintainer.
 
 ## Fragen zum Format selbst
 

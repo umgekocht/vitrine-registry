@@ -9,7 +9,10 @@
 //   <out>/index/v1/search.json                                   (Format:
 //     registry/schema/registry-search.schema.json)
 //   <out>/index/v1/featured.json                                 (Format:
-//     registry/schema/registry-featured.schema.json)
+//     registry/schema/registry-featured.schema.json; zwei redaktionell
+//     kuratierte Listen darin, 'items' (Featured) und 'popular' (Beliebt) --
+//     aus den optionalen 'featured'-/'popular'-Feldern je packages/<id>.json,
+//     keine echte Downloadzahl, Vitrine hat bewusst kein Backend)
 //
 // 'v1' ist der API-Pfad des Katalogformats (CATALOG_VERSION unten), nicht
 // identisch mit 'schemaVersion' in den einzelnen Dateien, faellt aktuell aber
@@ -37,6 +40,7 @@ import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import { Validator } from "@cfworker/json-schema";
+import { licenseWhitelistViolation } from "./license-policy.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const schemaDir = path.join(here, "schema");
@@ -148,6 +152,12 @@ function loadPackages(packagesDir) {
 		}
 		seenIds.add(data.id);
 
+		const licenseIssue = licenseWhitelistViolation(data.license);
+		if (licenseIssue) {
+			errors.push(`${file}: ${licenseIssue}`);
+			continue;
+		}
+
 		const versionValues = data.versions.map((v) => v.version);
 		if (!versionValues.includes(data.latestVersion)) {
 			errors.push(
@@ -208,6 +218,10 @@ function buildIndexPages(packages, { pageSize, now }) {
 					};
 					if (pkg.icon) summary.icon = pkg.icon;
 					if (pkg.description) summary.shortDescription = truncate(pkg.description, 160);
+					// GATE6/J2: 'javaMod' nur setzen, wenn true -- fehlendes Feld und
+					// 'false' bedeuten fuer den Mod-Client dasselbe (Klasse A), siehe
+					// registry-index-page.schema.json.
+					if (pkg.contentClass === "javamod") summary.javaMod = true;
 					return summary;
 				}),
 			},
@@ -236,16 +250,27 @@ function buildSearch(packages, { now }) {
 	};
 }
 
-function buildFeatured(packages, { now }) {
-	const items = packages
-		.filter((pkg) => pkg.featured)
-		.sort((a, b) => a.featured.order - b.featured.order)
+// Baut eine kuratierte Liste aus dem gegebenen Paketfeld ('featured' oder
+// 'popular') -- beide haben dieselbe Form {order, note?} im Paketeintrag und
+// erzeugen dieselbe Listenform {id, order, note?} in featured.json (Schema:
+// registry-featured.schema.json, $defs/curationItem). 'popular' ist -- wie
+// 'featured' -- redaktionell von den Registry-Maintainern gepflegt, keine
+// echte, gemessene Downloadzahl (Vitrine hat bewusst kein Backend).
+function buildCurationList(packages, fieldName) {
+	return packages
+		.filter((pkg) => pkg[fieldName])
+		.sort((a, b) => a[fieldName].order - b[fieldName].order)
 		.map((pkg) => {
-			const item = { id: pkg.id, order: pkg.featured.order };
-			if (pkg.featured.note) item.note = pkg.featured.note;
+			const item = { id: pkg.id, order: pkg[fieldName].order };
+			if (pkg[fieldName].note) item.note = pkg[fieldName].note;
 			return item;
 		});
-	return { schemaVersion: 1, generatedAt: now, items };
+}
+
+function buildFeatured(packages, { now }) {
+	const items = buildCurationList(packages, "featured");
+	const popular = buildCurationList(packages, "popular");
+	return { schemaVersion: 1, generatedAt: now, items, popular };
 }
 
 function writeJson(filePath, data) {
@@ -297,7 +322,8 @@ if (isMain) {
 		});
 		console.log(
 			`OK: ${result.packages.length} Paket(e), ${result.pages.length} Index-Seite(n), ` +
-				`${result.search.entries.length} Sucheintraege, ${result.featured.items.length} kuratierte Eintraege.`,
+				`${result.search.entries.length} Sucheintraege, ${result.featured.items.length} featured, ` +
+				`${result.featured.popular.length} beliebt.`,
 		);
 		console.log(`Geschrieben nach: ${args.outDir}`);
 	} catch (err) {

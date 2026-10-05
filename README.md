@@ -28,7 +28,7 @@ Festlegungen):
 | `packages/<id>.json` | [`schema/registry-package.schema.json`](schema/registry-package.schema.json) | Ein Eintrag pro veroeffentlichtem Paket: Metadaten, Autor, Kategorie, alle Versionen mit Download-URL, SHA-256, ed25519-Signatur. Von Autoren per PR gepflegt — siehe [`CONTRIBUTING.md`](CONTRIBUTING.md). |
 | `index/v1/index.json`, `index/v1/index-2.json`, ... | [`schema/registry-index-page.schema.json`](schema/registry-index-page.schema.json) | Paginierte Liste aller Pakete (Kurzeintraege), erzeugt vom Builder. Seite 1 heisst `index.json`, jede weitere `index-<n>.json`. |
 | `index/v1/search.json` | [`schema/registry-search.schema.json`](schema/registry-search.schema.json) | Flache, nicht paginierte Liste mit Suchfeldern (Stichworte), erzeugt vom Builder. |
-| `index/v1/featured.json` | [`schema/registry-featured.schema.json`](schema/registry-featured.schema.json) | Kuratierte Auswahl, aus dem optionalen `featured`-Feld je Paketeintrag erzeugt. |
+| `index/v1/featured.json` | [`schema/registry-featured.schema.json`](schema/registry-featured.schema.json) | Zwei getrennt kuratierte Listen: `items` (Startseiten-Abschnitt "Featured", aus dem optionalen `featured`-Feld je Paketeintrag) und `popular` (Startseiten-Abschnitt "Beliebt", aus dem optionalen `popular`-Feld — ebenfalls redaktionell, keine gemessene Downloadzahl, siehe "Technische Festlegung: Katalog ohne Backend"). |
 
 `packages/<id>.json` ist die **Quelle**, alles unter `index/v1/` ist
 **generiert** — nie von Hand pflegen, immer per `build-index.js` neu bauen.
@@ -65,9 +65,9 @@ kaputter Eintrag bricht den ganzen Lauf ab (Exit-Code 1) — kein halber Index.
 [`packages/`](packages/) enthaelt drei Beispielpakete (Klasse-A-Inhalte:
 Textur, Theme, HUD) als Fixtures fuer Builder-Test und Dokumentation:
 
-- `spassglas.steinbrocken-textur` (Kategorie `texturen`, zwei Versionen, kuratiert)
-- `spassglas.mitternacht-theme` (Kategorie `theme`, kuratiert)
-- `spassglas.kompakt-hud` (Kategorie `hud`, mit `minVitrineVersion`)
+- `spassglas.steinbrocken-textur` (Kategorie `texturen`, zwei Versionen, `featured`)
+- `spassglas.mitternacht-theme` (Kategorie `theme`, `featured` und `popular`)
+- `spassglas.kompakt-hud` (Kategorie `hud`, mit `minVitrineVersion`, `popular`)
 
 ## Test
 
@@ -88,10 +88,11 @@ eines Registry-Pakets, das sein Schema verletzt.
 
 Der Katalog-Client laedt `index/v1/index.json` (und folgt bei Bedarf
 `nextPage`), optional `index/v1/search.json` fuer die Store-Suche und
-`index/v1/featured.json` fuer die Startseite — per HTTPS-GET gegen eine
-Host-Whitelist, mit Timeout und Groessenlimit (K2s eigenes „Fertig"-
-Kriterium). Alle drei Dateien sind in sich geschlossen (keine `$ref` auf
-externe URLs, keine weiteren Nachlade-Schritte ausser der Pagination selbst).
+`index/v1/featured.json` (Felder `items` und `popular`) fuer die kuratierte
+Startseite (X2) — per HTTPS-GET gegen eine Host-Whitelist, mit Timeout und
+Groessenlimit (K2s eigenes „Fertig"-Kriterium). Alle drei Dateien sind in sich
+geschlossen (keine `$ref` auf externe URLs, keine weiteren Nachlade-Schritte
+ausser der Pagination selbst).
 
 ## Fuer Paket-Autoren (M4/K6)
 

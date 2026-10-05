@@ -126,6 +126,10 @@
           "updatedAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "javaMod": {
+            "description": "GATE6/J2: true, wenn 'contentClass' im Paketeintrag 'javamod' ist (ein .jar-Angebot, Klasse B). Fehlt das Feld, gilt Klasse A ('resource') -- IndexPage#fromJson im Mod liest 'fehlt' und 'false' gleich.",
+            "type": "boolean"
           }
         }
       }

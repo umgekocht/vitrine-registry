@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-04T12:17:24.341Z",
+  "generatedAt": "2026-10-05T16:39:41.013Z",
   "items": [
     {
       "id": "spassglas.steinbrocken-textur",
@@ -10,6 +10,17 @@
     {
       "id": "spassglas.mitternacht-theme",
       "order": 2
+    }
+  ],
+  "popular": [
+    {
+      "id": "spassglas.mitternacht-theme",
+      "order": 1
+    },
+    {
+      "id": "spassglas.kompakt-hud",
+      "order": 2,
+      "note": "Meistgenutztes HUD-Modul aus den Starter-Paketen."
     }
   ]
 }

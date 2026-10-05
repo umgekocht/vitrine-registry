@@ -99,7 +99,7 @@ test("Builder erzeugt aus den 3 Beispielpaketen einen gueltigen, paginierten Ind
 		assert.deepEqual(onDisk, result.search);
 	});
 
-	await t.test("featured.json ist gueltig und enthaelt die 2 kuratierten Pakete in order-Reihenfolge", () => {
+	await t.test("featured.json ist gueltig und enthaelt die 2 'featured'-Pakete in order-Reihenfolge", () => {
 		const validator = new Validator(loadSchema("registry-featured.schema.json"), "2020-12");
 		validateOrThrow(validator, result.featured, "featured.json");
 		assert.deepEqual(
@@ -109,6 +109,17 @@ test("Builder erzeugt aus den 3 Beispielpaketen einen gueltigen, paginierten Ind
 
 		const onDisk = JSON.parse(readFileSync(path.join(outDir, "index", "v1", "featured.json"), "utf8"));
 		assert.deepEqual(onDisk, result.featured);
+	});
+
+	await t.test("featured.json enthaelt die 2 'popular'-Pakete getrennt, in order-Reihenfolge", () => {
+		assert.deepEqual(
+			result.featured.popular.map((i) => i.id),
+			["spassglas.mitternacht-theme", "spassglas.kompakt-hud"],
+		);
+		assert.equal(result.featured.popular[1].note, "Meistgenutztes HUD-Modul aus den Starter-Paketen.");
+		// 'featured' und 'popular' sind unabhaengig: steinbrocken-textur ist
+		// featured, aber nicht popular; mitternacht-theme ist beides.
+		assert.ok(!result.featured.popular.some((i) => i.id === "spassglas.steinbrocken-textur"));
 	});
 });
 
@@ -154,4 +165,44 @@ test("Builder lehnt ein Registry-Paket ab, das sein Schema verletzt", async (t) 
 	);
 
 	assert.throws(() => buildIndex({ packagesDir: badPackagesDir, outDir }), /verletzt registry-package\.schema\.json/);
+});
+
+// GATE23: license ist Pflichtfeld UND muss auf der Whitelist stehen
+// (registry/LICENSE-WHITELIST.md) -- geprueft ueber registry/license-policy.mjs,
+// dieselbe Funktion laeuft in build-index.js UND (ueber buildIndex) in der
+// PR-Pruefung validate-changed-packages.mjs.
+test("Builder lehnt ein Registry-Paket mit nicht-whitelisteter license ab", async (t) => {
+	const badPackagesDir = mkdtempSync(path.join(tmpdir(), "vitrine-registry-bad-license-"));
+	t.after(() => rmSync(badPackagesDir, { recursive: true, force: true }));
+
+	const outDir = mkdtempSync(path.join(tmpdir(), "vitrine-registry-bad-license-out-"));
+	t.after(() => rmSync(outDir, { recursive: true, force: true }));
+
+	const fs = await import("node:fs");
+	fs.writeFileSync(
+		path.join(badPackagesDir, "kaputt.lizenz.json"),
+		JSON.stringify({
+			schemaVersion: 1,
+			id: "kaputt.lizenz",
+			name: "Kaputte Lizenz",
+			category: "texturen",
+			author: { name: "Testautor" },
+			license: "Alle Rechte vorbehalten",
+			repository: "https://example.com/repo",
+			versions: [
+				{
+					version: "1.0.0",
+					vpkgUrl: "https://example.com/repo/releases/download/v1.0.0/kaputt.lizenz.vpkg",
+					sha256: "a".repeat(64),
+					signature: "cUUn6jiavQB8sqnWFcXQvmZWp/yQEp1h1sAuHnW0fCGQkYh8q2I6cv8covRmS3g4bJS5VWl4zeQ6c54ilFrkZQ==",
+					size: 1024,
+					publishedAt: "2026-01-01T00:00:00.000Z",
+				},
+			],
+			latestVersion: "1.0.0",
+			updatedAt: "2026-01-01T00:00:00.000Z",
+		}),
+	);
+
+	assert.throws(() => buildIndex({ packagesDir: badPackagesDir, outDir }), /steht ausdruecklich auf der Verbotsliste|nicht auf der Whitelist/);
 });

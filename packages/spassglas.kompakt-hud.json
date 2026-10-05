@@ -7,7 +7,7 @@
     "name": "Spassglas Studio",
     "url": "https://github.com/umgekocht"
   },
-  "description": "Platzsparendes HUD-Modul: Koordinaten, Uhrzeit und Fps in einer Zeile.",
+  "description": "Platzsparendes HUD-Modul: Koordinaten, Uhrzeit und Fps kompakt in einer Ecke.",
   "tags": [
     "hud",
     "koordinaten",
@@ -24,9 +24,13 @@
       "sha256": "1684e09abb5481d544517b2ec4b239b4bc274b6894dac08f577823bb10a34985",
       "signature": "LFhrTUXfIwnfgBrVOAqMU1YWl3Hfh4h+iIyjGhPWvlljHbxfyDWPUGxj+wJjY/lsGiorVE4cssq73VS2WJT0Bw==",
       "size": 1031,
-      "publishedAt": "2026-09-19T12:30:18Z"
+      "publishedAt": "2026-09-19T12:30:35Z"
     }
   ],
   "latestVersion": "1.0.0",
-  "updatedAt": "2026-09-19T12:30:18Z"
+  "updatedAt": "2026-09-19T12:30:35Z",
+  "popular": {
+    "order": 2,
+    "note": "Meistgenutztes HUD-Modul aus den Starter-Paketen."
+  }
 }

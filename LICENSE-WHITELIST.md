@@ -57,13 +57,28 @@ verlinkt und beschreibt).
 
 ## Wo die Lizenz steht
 
-Das optionale `license`-Feld in `packages/<id>.json`
-([Schema](schema/registry-package.schema.json)) ist ein Freitext (z. B.
-`"CC-BY-4.0"`). Die PR-Prüfung ([`pr-check.yml`](.github/workflows/pr-check.yml))
-prüft aktuell nur das Format des Manifests, nicht automatisiert, ob die
-angegebene Lizenz auf dieser Liste steht — das ist Teil der menschlichen
-PR-Durchsicht vor dem Merge. Wenn du unsicher bist, welche Lizenz passt:
-`CC0-1.0` ist immer sicher.
+Das `license`-Feld in `packages/<id>.json`
+([Schema](schema/registry-package.schema.json)) ist **Pflicht**, ein
+Freitext (z. B. `"CC-BY-4.0"`). Es wird automatisiert gegen diese Liste
+geprüft: [`license-policy.mjs`](license-policy.mjs) kennt die kurzen,
+maschinell erkennbaren Formen aus der „Erlaubt"-Tabelle oben
+(`CC0-1.0`, `CC-BY-<2.0|2.5|3.0|4.0>`, `CC-BY-SA-<2.0|2.5|3.0|4.0>`, `MIT`,
+`Apache-2.0`, `Unlicense`) sowie die Verbotsliste aus „Nicht erlaubt"
+(leer, „All Rights Reserved"/„Alle Rechte vorbehalten", `CC-BY(-SA)-NC*`,
+„nur für Vitrine"/„only for Vitrine", `proprietary`). Eine freie
+Sonderlizenz aus der Tabellenzeile „Eigene, offene ‚freie Nutzung'-Erklärung"
+braucht dafür einen expliziten Eintrag in `CUSTOM_ALLOWED_LICENSES`
+(`license-policy.mjs`) — das geht selbst durch PR-Review, kein automatischer
+Blanko-Freifahrtschein für beliebigen Freitext.
+
+Diese Prüfung läuft an zwei Stellen, beide über dieselbe Funktion
+(`licenseWhitelistViolation`): beim Index-Bau
+([`build-index.js`](build-index.js), `loadPackages`) und bei der
+PR-Prüfung ([`validate-changed-packages.mjs`](scripts/validate-changed-packages.mjs),
+das `build-index.js` für seinen vollständigen zweiten Prüfdurchlauf
+importiert) — ein Paket mit nicht gelisteter Lizenz kommt also weder in den
+Index noch durch den PR-Check, ganz ohne menschliche Nachprüfung. Wenn du
+unsicher bist, welche Lizenz passt: `CC0-1.0` ist immer sicher.
 
 ## Fragen
 
