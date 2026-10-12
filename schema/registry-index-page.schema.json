@@ -107,7 +107,8 @@
               "sound",
               "sprache",
               "cosmetics",
-              "bundle"
+              "bundle",
+              "addon"
             ]
           },
           "license": {
@@ -137,6 +138,18 @@
           "javaMod": {
             "description": "GATE6/J2: true, wenn 'contentClass' im Paketeintrag 'javamod' ist (ein .jar-Angebot, Klasse B). Fehlt das Feld, gilt Klasse A ('resource') -- IndexPage#fromJson im Mod liest 'fehlt' und 'false' gleich.",
             "type": "boolean"
+          },
+          "minecraftVersions": {
+            "description": "GATE70-FOLLOW: abgeflacht aus 'minecraftVersions' im Paketeintrag (registry-package.schema.json), optional -- fehlt es dort, fehlt es auch hier.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[1-9][0-9]*\\.[0-9]+(\\.[0-9]+)?$",
+              "maxLength": 16
+            },
+            "minItems": 1,
+            "maxItems": 32,
+            "uniqueItems": true
           }
         }
       }

@@ -16,6 +16,10 @@
   "homepage": "https://github.com/umgekocht/vitrine-packs-starter",
   "license": "CC-BY-4.0",
   "repository": "https://github.com/umgekocht/vitrine-packs-starter",
+  "minecraftVersions": [
+    "1.21.1",
+    "1.21.4"
+  ],
   "versions": [
     {
       "version": "1.0.0",

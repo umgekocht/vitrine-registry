@@ -4,11 +4,12 @@
 // als CLI-Lauf prueft:
 //   1. Alle Beispiele unter examples/valid|invalid/ verhalten sich wie
 //      erwartet (mind. 13 invalide, siehe README).
-//   2. G2 -- `capabilities` ist ein geschlossenes enum aus genau sieben
-//      Werten (die `category`-Werte ohne `bundle`). `["hud"]` gueltig,
-//      `["hud.read"]` bzw. `["unbekannt"]` ungueltig, Meldung an
-//      #/capabilities/0. Dieselben sieben Werte prueft die Mod-Laufzeit
-//      (VpkgCapabilityGrant / ManifestParser).
+//   2. G2 -- `capabilities` ist ein geschlossenes enum aus genau neun
+//      Werten (die `category`-Werte ohne `bundle`, plus `verhalten` und
+//      `skript` fuer Addons, AD4). `["hud"]` gueltig, `["hud.read"]` bzw.
+//      `["unbekannt"]` ungueltig, Meldung an #/capabilities/0. Dieselben
+//      neun Werte prueft die Mod-Laufzeit (VpkgCapabilityGrant /
+//      ManifestParser).
 
 import test from "node:test";
 import assert from "node:assert/strict";
@@ -29,9 +30,9 @@ function examplesIn(sub) {
 		.map((f) => ({ name: f, data: JSON.parse(readFileSync(path.join(dir, f), "utf8")) }));
 }
 
-const CAPABILITY_ENUM = ["texturen", "theme", "hud", "shader", "sound", "sprache", "cosmetics"];
+const CAPABILITY_ENUM = ["texturen", "theme", "hud", "shader", "sound", "sprache", "cosmetics", "verhalten", "skript"];
 
-test("capabilities.items ist ein enum mit genau den sieben erlaubten Werten (category ohne bundle)", () => {
+test("capabilities.items ist ein enum mit genau den neun erlaubten Werten (category ohne bundle, plus verhalten/skript fuer Addons)", () => {
 	assert.deepEqual(schema.properties.capabilities.items.enum, CAPABILITY_ENUM);
 	assert.equal(schema.properties.capabilities.items.pattern, undefined, "kein pattern mehr -- geschlossenes enum (G2)");
 	assert.equal(schema.properties.capabilities.uniqueItems, true);

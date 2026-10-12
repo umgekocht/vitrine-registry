@@ -49,7 +49,8 @@
         "sound",
         "sprache",
         "cosmetics",
-        "bundle"
+        "bundle",
+        "addon"
       ]
     },
     "contentClass": {
@@ -153,7 +154,7 @@
       "maxLength": 2000
     },
     "capabilities": {
-      "description": "Fähigkeiten-Whitelist (Charter-Regel 4). Genau diese sieben Bezeichner sind erlaubt; sie decken sich mit den `category`-Werten (ohne `bundle`). Jeder andere Eintrag wird beim Installieren abgelehnt.",
+      "description": "Fähigkeiten-Whitelist (Charter-Regel 4). Genau diese neun Bezeichner sind erlaubt; die ersten sieben decken sich mit den `category`-Werten (ohne `bundle`), `verhalten` und `skript` gehoeren zu Addons (`category: addon`, ROADMAP M10/AD1+AD2: `verhalten` fuer Datenpaket-Inhalte unter `data/` und deklarative Regeln unter `regeln/*.json`, AD4; `skript` ist bereits reserviert fuer die volle X5-Sandbox-Skript-Faehigkeit aus ROADMAP AD2, aber noch ungenutzt -- kein Mod-Pfad installiert sie heute). Jeder andere Eintrag wird beim Installieren abgelehnt.",
       "type": "array",
       "items": {
         "type": "string",
@@ -164,7 +165,9 @@
           "shader",
           "sound",
           "sprache",
-          "cosmetics"
+          "cosmetics",
+          "verhalten",
+          "skript"
         ]
       },
       "uniqueItems": true,

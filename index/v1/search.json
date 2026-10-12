@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-05T22:41:11.084Z",
-  "totalCount": 6,
+  "generatedAt": "2026-10-12T18:09:30.668Z",
+  "totalCount": 7,
   "entries": [
     {
       "id": "spassglas.holzbretter-textur",
@@ -59,6 +59,26 @@
         "hud",
         "koordinaten",
         "kompakt"
+      ]
+    },
+    {
+      "id": "spassglas.mehr-rezepte",
+      "name": "Mehr Rezepte",
+      "author": "Spassglas Studio",
+      "category": "addon",
+      "license": "CC-BY-4.0",
+      "keywords": [
+        "addon",
+        "crafting",
+        "mehr",
+        "rezepte",
+        "spassglas",
+        "studio"
+      ],
+      "tags": [
+        "addon",
+        "rezepte",
+        "crafting"
       ]
     },
     {

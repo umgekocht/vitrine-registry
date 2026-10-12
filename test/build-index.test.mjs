@@ -84,6 +84,13 @@ test("Builder erzeugt aus den 3 Beispielpaketen einen gueltigen, paginierten Ind
 		// GATE101: Kachelansicht im Mod braucht 'license' schon im Index, ohne
 		// vorher die Detailseite zu laden.
 		assert.ok(page.content.packages.every((p) => p.license === "CC-BY-4.0"));
+		// GATE70-FOLLOW: 'minecraftVersions' ist optional -- nur
+		// steinbrocken-textur traegt es in der Quelle, die anderen beiden
+		// Fixtures bleiben ohne das Feld (kein erfundener Wert).
+		const steinbrocken = page.content.packages.find((p) => p.id === "spassglas.steinbrocken-textur");
+		assert.deepEqual(steinbrocken.minecraftVersions, ["1.21.1", "1.21.4"]);
+		const others = page.content.packages.filter((p) => p.id !== "spassglas.steinbrocken-textur");
+		assert.ok(others.every((p) => p.minecraftVersions === undefined));
 
 		const validator = new Validator(loadSchema("registry-index-page.schema.json"), "2020-12");
 		validateOrThrow(validator, page.content, "index/index.json");
