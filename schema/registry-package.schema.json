@@ -211,7 +211,8 @@
         "sound",
         "sprache",
         "cosmetics",
-        "bundle"
+        "bundle",
+        "addon"
       ]
     },
     "author": {
@@ -274,6 +275,18 @@
       "type": "string",
       "pattern": "^https://[^\\s]+$",
       "maxLength": 512
+    },
+    "minecraftVersions": {
+      "description": "GATE70-FOLLOW: Minecraft-Versionen, fuer die dieses Paket freigegeben ist, z. B. ['1.21.1', '1.21.4'] -- gleiche Vokabel, gleiches Muster wie 'javaMod.minecraftVersions' in vitrine.schema.json (dort Pflicht fuer Klasse B). Hier bewusst optional und nicht an 'contentClass' gebunden: docs/UI-SPEC.md zeigt 'MC-Versionen' im Kopfbereich jeder Detailseite, nicht nur bei Klasse-B-Angeboten, und bestehende packages/<id>.json-Dateien ohne dieses Feld bleiben gueltig (keine rueckwirkende Pflicht). Fehlt das Feld, zeigt die Detailseite ehrlich 'keine Angaben' (Charter-Regel 2) -- siehe mod/.../PackageDetailHeader#minecraftVersions.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[1-9][0-9]*\\.[0-9]+(\\.[0-9]+)?$",
+        "maxLength": 16
+      },
+      "minItems": 1,
+      "maxItems": 32,
+      "uniqueItems": true
     },
     "versions": {
       "description": "Alle veroeffentlichten Versionen dieses Pakets, aelteste zuerst empfohlen. Mindestens eine. Die Form jedes Eintrags haengt von 'contentClass' ab -- siehe das if/then/else auf Dokumentebene und $defs/resourceVersionItem bzw. $defs/javamodVersionItem oben.",

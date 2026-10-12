@@ -226,6 +226,9 @@ function buildIndexPages(packages, { pageSize, now }) {
 					// 'false' bedeuten fuer den Mod-Client dasselbe (Klasse A), siehe
 					// registry-index-page.schema.json.
 					if (pkg.contentClass === "javamod") summary.javaMod = true;
+					// GATE70-FOLLOW: optionales Feld, nur setzen, wenn das Paket es
+					// traegt -- siehe registry-package.schema.json, 'minecraftVersions'.
+					if (pkg.minecraftVersions) summary.minecraftVersions = pkg.minecraftVersions;
 					return summary;
 				}),
 			},

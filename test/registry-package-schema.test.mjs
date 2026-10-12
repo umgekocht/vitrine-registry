@@ -44,6 +44,7 @@ function validPackage(overrides = {}) {
 		versions: [
 			{
 				version: "1.0.0",
+				vpkgUrl: "https://example.com/vitrine-testfixture/testfixture/releases/download/v1.0.0/testfixture.vpkg",
 				sha256: "a".repeat(64),
 				signature: "cUUn6jiavQB8sqnWFcXQvmZWp/yQEp1h1sAuHnW0fCGQkYh8q2I6cv8covRmS3g4bJS5VWl4zeQ6c54ilFrkZQ==",
 				size: 1024,
@@ -165,4 +166,42 @@ test("ein 'resource'-Paket mit explizitem contentClass:'resource' validiert wie 
 	const data = validPackage({ contentClass: "resource", versions: [{ ...validPackage().versions[0], vpkgUrl: "https://example.com/vitrine-testfixture/testfixture/releases/download/v1.0.0/testfixture.vpkg" }] });
 	const result = validator.validate(data);
 	assert.equal(result.valid, true, `sollte gueltig sein: ${JSON.stringify(result.errors, null, 2)}`);
+});
+
+// GATE70-FOLLOW: 'minecraftVersions' ist optional, nicht an 'contentClass'
+// gebunden -- siehe registry-package.schema.json.
+test("ein Paket ohne 'minecraftVersions' validiert weiterhin (optionales Feld)", () => {
+	const validator = new Validator(schema, "2020-12");
+	const data = validPackage();
+	assert.equal(data.minecraftVersions, undefined);
+	const result = validator.validate(data);
+	assert.equal(result.valid, true, `sollte gueltig sein: ${JSON.stringify(result.errors, null, 2)}`);
+});
+
+test("ein Paket mit gueltigem 'minecraftVersions' validiert", () => {
+	const validator = new Validator(schema, "2020-12");
+	const data = validPackage({ minecraftVersions: ["1.21.1", "1.21.4"] });
+	const result = validator.validate(data);
+	assert.equal(result.valid, true, `sollte gueltig sein: ${JSON.stringify(result.errors, null, 2)}`);
+});
+
+test("ein Paket mit leerem 'minecraftVersions' (minItems 1) wird abgelehnt", () => {
+	const validator = new Validator(schema, "2020-12");
+	const data = validPackage({ minecraftVersions: [] });
+	const result = validator.validate(data);
+	assert.equal(result.valid, false, "sollte ungueltig sein (minItems 1)");
+});
+
+test("ein Paket mit falsch getyptem 'minecraftVersions'-Eintrag (Zahl statt String) wird abgelehnt", () => {
+	const validator = new Validator(schema, "2020-12");
+	const data = validPackage({ minecraftVersions: [1.21] });
+	const result = validator.validate(data);
+	assert.equal(result.valid, false, "sollte ungueltig sein (Eintrag muss ein String sein)");
+});
+
+test("ein Paket mit falsch gemustertem 'minecraftVersions'-Eintrag wird abgelehnt", () => {
+	const validator = new Validator(schema, "2020-12");
+	const data = validPackage({ minecraftVersions: ["v1.21.1"] });
+	const result = validator.validate(data);
+	assert.equal(result.valid, false, "sollte ungueltig sein (kein 'v'-Praefix erlaubt)");
 });
