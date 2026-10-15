@@ -1,8 +1,29 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-12T18:10:44.945Z",
-  "totalCount": 7,
+  "generatedAt": "2026-10-15T16:41:47.312Z",
+  "totalCount": 8,
   "entries": [
+    {
+      "id": "spassglas.biom-kompass",
+      "name": "Biom-Kompass",
+      "author": "Spassglas Studio",
+      "category": "addon",
+      "license": "CC-BY-4.0",
+      "keywords": [
+        "addon",
+        "biom",
+        "hud",
+        "kompass",
+        "skript",
+        "spassglas",
+        "studio"
+      ],
+      "tags": [
+        "addon",
+        "skript",
+        "hud"
+      ]
+    },
     {
       "id": "spassglas.holzbretter-textur",
       "name": "Holzbretter",

@@ -1,13 +1,27 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-12T18:10:44.945Z",
+  "generatedAt": "2026-10-15T16:41:47.312Z",
   "page": 1,
   "pageSize": 24,
   "totalPages": 1,
-  "totalCount": 7,
+  "totalCount": 8,
   "nextPage": null,
   "previousPage": null,
   "packages": [
+    {
+      "id": "spassglas.biom-kompass",
+      "name": "Biom-Kompass",
+      "author": "Spassglas Studio",
+      "category": "addon",
+      "license": "CC-BY-4.0",
+      "latestVersion": "1.0.0",
+      "updatedAt": "2026-10-14T16:41:43Z",
+      "icon": "https://raw.githubusercontent.com/umgekocht/vitrine-packs-starter/main/biom-kompass/icon.png",
+      "shortDescription": "Zeigt dein aktuelles Biom als HUD-Wert, begruesst dich beim Weltbeitritt mit einem Ton und sagt per Chat-Befehl '/v biom' dein Biom erneut an. Reines Skript-...",
+      "minecraftVersions": [
+        "1.21.1"
+      ]
+    },
     {
       "id": "spassglas.holzbretter-textur",
       "name": "Holzbretter",
