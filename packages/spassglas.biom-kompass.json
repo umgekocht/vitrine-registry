@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "spassglas.biom-kompass",
+  "name": "Biom-Kompass",
+  "category": "addon",
+  "author": {
+    "name": "Spassglas Studio",
+    "url": "https://github.com/umgekocht"
+  },
+  "description": "Zeigt dein aktuelles Biom als HUD-Wert, begruesst dich beim Weltbeitritt mit einem Ton und sagt per Chat-Befehl '/v biom' dein Biom erneut an. Reines Skript-Addon -- wirkt sofort, ohne Neustart.",
+  "tags": [
+    "addon",
+    "skript",
+    "hud"
+  ],
+  "icon": "https://raw.githubusercontent.com/umgekocht/vitrine-packs-starter/main/biom-kompass/icon.png",
+  "homepage": "https://github.com/umgekocht/vitrine-packs-starter",
+  "license": "CC-BY-4.0",
+  "repository": "https://github.com/umgekocht/vitrine-packs-starter",
+  "minecraftVersions": [
+    "1.21.1"
+  ],
+  "versions": [
+    {
+      "version": "1.0.0",
+      "vpkgUrl": "https://github.com/umgekocht/vitrine-packs-starter/releases/download/spassglas.biom-kompass-v1.0.0/biom-kompass.vpkg",
+      "sha256": "e411117f19c8a803dedf5a277a4ee6c6e49ae77445d686818827e6f72866c468",
+      "signature": "37hg0p7PyGwSiSM05yXYqt5ui0Qpid1FucDJK7z+Et9eH/pKd3Z+sX8pq76EikaqddOw0+Nu0oFMOzbFO+J0AQ==",
+      "size": 11771,
+      "publishedAt": "2026-10-14T16:41:43Z"
+    }
+  ],
+  "latestVersion": "1.0.0",
+  "updatedAt": "2026-10-14T16:41:43Z"
+}
