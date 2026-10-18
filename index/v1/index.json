@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-18T09:37:50.666Z",
+  "generatedAt": "2026-10-18T09:46:35.398Z",
   "page": 1,
   "pageSize": 24,
   "totalPages": 1,
@@ -111,6 +111,7 @@
       "license": "MIT",
       "latestVersion": "1.0.0",
       "updatedAt": "2026-10-18T09:36:07.210Z",
+      "icon": "https://raw.githubusercontent.com/umgekocht/vitrine-uploads/main/assets/vitrine.uhr/1.0.0/icon.png",
       "shortDescription": "Dezentes HUD: Uhrzeit oben rechts, FPS oben links und Koordinaten unten links. Rein deklarativ, ohne Code."
     }
   ]
