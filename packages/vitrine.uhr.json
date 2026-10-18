@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "vitrine.uhr",
+  "name": "Vitrine Uhr",
+  "category": "hud",
+  "author": {
+    "name": "Vitrine"
+  },
+  "description": "Dezentes HUD: Uhrzeit oben rechts, FPS oben links und Koordinaten unten links. Rein deklarativ, ohne Code.",
+  "capabilities": [
+    "hud"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/umgekocht/vitrine-uploads",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "vpkgUrl": "https://github.com/umgekocht/vitrine-uploads/releases/download/vitrine.uhr-v1.0.0/vitrine.uhr-1.0.0.vpkg",
+      "sha256": "a22fb2901a94c85569709ef4beb15d74aa45624b36464624ffc47de4730ccd0a",
+      "signature": "PLiaSw/cs2M83G0UlquReCYjINvOnqDl2lh4Ovfrq0jNm0g+rerIBy0GEtMfoyDMTnz6ZhAHIFextdWwU7/YDQ==",
+      "size": 14152,
+      "publishedAt": "2026-10-18T09:36:07.210Z"
+    }
+  ],
+  "latestVersion": "1.0.0",
+  "updatedAt": "2026-10-18T09:36:07.210Z"
+}
