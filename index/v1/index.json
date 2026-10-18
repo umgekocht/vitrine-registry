@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-15T16:41:47.312Z",
+  "generatedAt": "2026-10-18T09:37:50.666Z",
   "page": 1,
   "pageSize": 24,
   "totalPages": 1,
-  "totalCount": 8,
+  "totalCount": 9,
   "nextPage": null,
   "previousPage": null,
   "packages": [
@@ -102,6 +102,16 @@
       "updatedAt": "2026-10-05T22:39:30.927Z",
       "icon": "https://raw.githubusercontent.com/umgekocht/vitrine-packs-starter/main/tageslicht-theme/icon.png",
       "shortDescription": "Warmes Store-Theme mit Bernstein-Akzent -- hell am Tag, ruhig am Abend."
+    },
+    {
+      "id": "vitrine.uhr",
+      "name": "Vitrine Uhr",
+      "author": "Vitrine",
+      "category": "hud",
+      "license": "MIT",
+      "latestVersion": "1.0.0",
+      "updatedAt": "2026-10-18T09:36:07.210Z",
+      "shortDescription": "Dezentes HUD: Uhrzeit oben rechts, FPS oben links und Koordinaten unten links. Rein deklarativ, ohne Code."
     }
   ]
 }

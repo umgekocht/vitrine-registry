@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-15T16:41:47.312Z",
-  "totalCount": 8,
+  "generatedAt": "2026-10-18T09:37:50.666Z",
+  "totalCount": 9,
   "entries": [
     {
       "id": "spassglas.biom-kompass",
@@ -158,6 +158,17 @@
         "theme",
         "hell",
         "warm"
+      ]
+    },
+    {
+      "id": "vitrine.uhr",
+      "name": "Vitrine Uhr",
+      "author": "Vitrine",
+      "category": "hud",
+      "license": "MIT",
+      "keywords": [
+        "uhr",
+        "vitrine"
       ]
     }
   ]
